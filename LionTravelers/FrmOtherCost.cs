@@ -20,7 +20,7 @@ namespace LionTravelers
 
             ClsOtherCost lcCost = (ClsOtherCost)_Cost;
 
-            lcCost.OtherFees = Convert.ToDecimal(txtOtherCostAmount.Text);
+            lcCost.OtherFees = txtOtherCostAmount.Text;
         }
         protected override void updateDisplay()
         {

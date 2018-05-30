@@ -29,5 +29,13 @@ namespace LionTravelers
             comboBoxStaffType.SelectedValue = lcCost.StaffType;
 
         }
+
+        private void comboBoxStaffType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedIndex = comboBoxStaffType.SelectedIndex;
+            ClsStaffCost lcCost = (ClsStaffCost)_Cost;
+            Console.WriteLine("Days {0}", lcCost.NoOfDays);
+            lblAmountValue.Text = (selectedIndex  == 0) ? Convert.ToString(200 * lcCost.NoOfDays) : (selectedIndex == 1) ? Convert.ToString(100 * lcCost.NoOfDays) : "";
+        }
     }
 }

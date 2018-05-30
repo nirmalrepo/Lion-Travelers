@@ -51,6 +51,7 @@
             this.comboBoxStaffType.Name = "comboBoxStaffType";
             this.comboBoxStaffType.Size = new System.Drawing.Size(101, 21);
             this.comboBoxStaffType.TabIndex = 69;
+            this.comboBoxStaffType.SelectedIndexChanged += new System.EventHandler(this.comboBoxStaffType_SelectedIndexChanged);
             // 
             // FrmStaffCost
             // 

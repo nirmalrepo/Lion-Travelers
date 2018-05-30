@@ -20,8 +20,10 @@ namespace LionTravelers
             base.pushData();
 
             ClsVehicleCost lcCost = (ClsVehicleCost)_Cost;
+            
 
             lcCost.KmCharge = Convert.ToDecimal(txtKmCharge.Text);
+            
         }
 
         protected override void updateDisplay()
@@ -29,7 +31,14 @@ namespace LionTravelers
             base.updateDisplay();
             ClsVehicleCost lcCost = (ClsVehicleCost)_Cost;
             txtKmCharge.Text = Convert.ToString(lcCost.KmCharge);
+            lblAmountValue.Text = Convert.ToString(lcCost.KmCharge * lcCost.Distance);
 
+        }
+
+        private void txtKmCharge_TextChanged(object sender, EventArgs e)
+        {
+            ClsVehicleCost lcCost = (ClsVehicleCost)_Cost;
+            lblAmountValue.Text = (txtKmCharge.Text.Length > 0) ? Convert.ToString(Convert.ToDecimal(txtKmCharge.Text) * lcCost.Distance) : "";
         }
     }
 }

@@ -59,8 +59,9 @@ namespace LionTravelers
 
         private void btnAddTourCost_Click(object sender, EventArgs e)
         {
-            ClsCost lcTourCost = ClsCost.NewCost(comboBoxCostType.SelectedIndex);
-
+            var TourData = getTourDataForCostAmountCalculation();
+            
+            ClsCost lcTourCost = ClsCost.NewCost(comboBoxCostType.SelectedIndex, TourData);
             if (lcTourCost != null && lcTourCost.ViewEdit())
 
             {
@@ -70,6 +71,13 @@ namespace LionTravelers
                 UpdateCostListDisplay();
 
             }
+        }
+        private Dictionary<string, string> getTourDataForCostAmountCalculation()
+        {
+            var TourData = new Dictionary<string, string>();
+            TourData.Add("distance", Convert.ToString(numericUpDownDistance.Value));
+            TourData.Add("noOfDays", (dateTimeEndDate.Value.Subtract(dateTimeStartDate.Value).Days.ToString()));
+            return TourData;
         }
         private void UpdateCostListDisplay()
         {

@@ -30,6 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.txtKmCharge = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -47,11 +48,21 @@
             this.txtKmCharge.Name = "txtKmCharge";
             this.txtKmCharge.Size = new System.Drawing.Size(100, 20);
             this.txtKmCharge.TabIndex = 68;
+            this.txtKmCharge.TextChanged += new System.EventHandler(this.txtKmCharge_TextChanged);
+           
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(36, 296);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 69;
             // 
             // FrmVehicleCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(269, 319);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtKmCharge);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -59,6 +70,7 @@
             this.Text = "Vehicle Cost";
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txtKmCharge, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,5 +80,6 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtKmCharge;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -13,6 +13,7 @@ namespace LionTravelers
     public partial class FrmCost : Form
     {
         protected ClsCost _Cost;
+        protected ClsTour _Tour;
         public FrmCost()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace LionTravelers
 
             txtName.Text = _Cost.Name;
 
-            lblAmountValue.Text = _Cost.Cost;
+            lblAmountValue.Text = Convert.ToString(_Cost.Cost);
 
 
         }
@@ -54,7 +55,11 @@ namespace LionTravelers
 
             _Cost.Name = txtName.Text;
 
-            _Cost.Cost = lblAmountValue.Text;
+            _Cost.Cost = Convert.ToDecimal(lblAmountValue.Text);
+        }
+
+        protected virtual string CalculateTotalCostAmount(char costToCalculate) {
+            return lblAmountValue.Text; 
         }
     }
 }

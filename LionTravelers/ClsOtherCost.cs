@@ -9,10 +9,10 @@ namespace LionTravelers
 {
     class ClsOtherCost:ClsCost
     {
-        private decimal _OtherFees;
+        private string _OtherFees;
         private static FrmOtherCost _Form = new FrmOtherCost();
 
-        public decimal OtherFees { get => _OtherFees; set => _OtherFees = value; }
+        public string OtherFees { get => _OtherFees; set => _OtherFees = value; }
 
         public override bool ViewEdit()
         {
