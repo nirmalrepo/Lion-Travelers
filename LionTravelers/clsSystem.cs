@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LionTravelers
 {
-    class clsSystem
+    class ClsSystem
     {
-        private static Dictionary<string, clsTour> _TourList = new Dictionary<string, clsTour>();
+        private static Dictionary<string, ClsTour> _TourList = new Dictionary<string, ClsTour>();
 
-        public static Dictionary<string, clsTour> TourList
+        public static Dictionary<string, ClsTour> TourList
         {
             get
             {

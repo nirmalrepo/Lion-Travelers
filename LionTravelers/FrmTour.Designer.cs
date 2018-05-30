@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddTourCancel = new System.Windows.Forms.Button();
+            this.btnEditTourCost = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxCostType = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteTourCost = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddTourCost = new System.Windows.Forms.Button();
             this.listViewTourCost = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,25 +67,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxPassengers)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // btnAddTourCancel
             // 
-            this.button4.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Olive;
-            this.button4.Location = new System.Drawing.Point(118, 287);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(64, 32);
-            this.button4.TabIndex = 62;
-            this.button4.Text = "Edit";
+            this.btnAddTourCancel.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTourCancel.ForeColor = System.Drawing.Color.Olive;
+            this.btnAddTourCancel.Location = new System.Drawing.Point(118, 287);
+            this.btnAddTourCancel.Name = "btnAddTourCancel";
+            this.btnAddTourCancel.Size = new System.Drawing.Size(64, 32);
+            this.btnAddTourCancel.TabIndex = 62;
+            this.btnAddTourCancel.Text = "Cancel";
+            this.btnAddTourCancel.Click += new System.EventHandler(this.btnAddTourCancel_Click);
             // 
-            // button1
+            // btnEditTourCost
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Olive;
-            this.button1.Location = new System.Drawing.Point(82, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 21);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "Edit";
+            this.btnEditTourCost.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditTourCost.ForeColor = System.Drawing.Color.Olive;
+            this.btnEditTourCost.Location = new System.Drawing.Point(82, 154);
+            this.btnEditTourCost.Name = "btnEditTourCost";
+            this.btnEditTourCost.Size = new System.Drawing.Size(61, 21);
+            this.btnEditTourCost.TabIndex = 56;
+            this.btnEditTourCost.Text = "Edit";
+            this.btnEditTourCost.Click += new System.EventHandler(this.btnEditTourCost_Click);
             // 
             // label13
             // 
@@ -110,23 +112,23 @@
             this.comboBoxCostType.Size = new System.Drawing.Size(152, 22);
             this.comboBoxCostType.TabIndex = 54;
             // 
-            // button2
+            // btnDeleteTourCost
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(216, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 22);
-            this.button2.TabIndex = 53;
-            this.button2.Text = "Delete";
+            this.btnDeleteTourCost.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTourCost.ForeColor = System.Drawing.Color.Red;
+            this.btnDeleteTourCost.Location = new System.Drawing.Point(216, 154);
+            this.btnDeleteTourCost.Name = "btnDeleteTourCost";
+            this.btnDeleteTourCost.Size = new System.Drawing.Size(61, 22);
+            this.btnDeleteTourCost.TabIndex = 53;
+            this.btnDeleteTourCost.Text = "Delete";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnEditTourCost);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.comboBoxCostType);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnDeleteTourCost);
+            this.groupBox2.Controls.Add(this.btnAddTourCost);
             this.groupBox2.Controls.Add(this.listViewTourCost);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(352, 14);
@@ -136,15 +138,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour Cost";
             // 
-            // button3
+            // btnAddTourCost
             // 
-            this.button3.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Green;
-            this.button3.Location = new System.Drawing.Point(15, 154);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(61, 21);
-            this.button3.TabIndex = 52;
-            this.button3.Text = "Add";
+            this.btnAddTourCost.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTourCost.ForeColor = System.Drawing.Color.Green;
+            this.btnAddTourCost.Location = new System.Drawing.Point(15, 154);
+            this.btnAddTourCost.Name = "btnAddTourCost";
+            this.btnAddTourCost.Size = new System.Drawing.Size(61, 21);
+            this.btnAddTourCost.TabIndex = 52;
+            this.btnAddTourCost.Text = "Add";
+            this.btnAddTourCost.Click += new System.EventHandler(this.btnAddTourCost_Click);
             // 
             // listViewTourCost
             // 
@@ -378,7 +381,6 @@
             this.labelTotalCost.Name = "labelTotalCost";
             this.labelTotalCost.Size = new System.Drawing.Size(90, 16);
             this.labelTotalCost.TabIndex = 59;
-            this.labelTotalCost.Text = "$ 400.00";
             // 
             // btnAddTourOk
             // 
@@ -388,7 +390,7 @@
             this.btnAddTourOk.Name = "btnAddTourOk";
             this.btnAddTourOk.Size = new System.Drawing.Size(64, 32);
             this.btnAddTourOk.TabIndex = 63;
-            this.btnAddTourOk.Text = "Add";
+            this.btnAddTourOk.Text = "OK";
             this.btnAddTourOk.Click += new System.EventHandler(this.btnAddTourOk_Click);
             // 
             // FrmTour
@@ -397,7 +399,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 343);
             this.Controls.Add(this.btnAddTourOk);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnAddTourCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Label5);
@@ -418,13 +420,13 @@
 
         #endregion
 
-        internal System.Windows.Forms.Button button4;
-        internal System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.Button btnAddTourCancel;
+        internal System.Windows.Forms.Button btnEditTourCost;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBoxCostType;
-        internal System.Windows.Forms.Button button2;
+        internal System.Windows.Forms.Button btnDeleteTourCost;
         private System.Windows.Forms.GroupBox groupBox2;
-        internal System.Windows.Forms.Button button3;
+        internal System.Windows.Forms.Button btnAddTourCost;
         private System.Windows.Forms.ListView listViewTourCost;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

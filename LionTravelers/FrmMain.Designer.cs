@@ -31,15 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewTourList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditTour = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.lstTours = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +64,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listView1);
+            this.groupBox2.Controls.Add(this.listViewTourList);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(24, 101);
             this.groupBox2.Name = "groupBox2";
@@ -74,20 +73,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour List";
             // 
-            // listView1
+            // listViewTourList
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewTourList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader5});
-            this.listView1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(15, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Scrollable = false;
-            this.listView1.Size = new System.Drawing.Size(351, 77);
-            this.listView1.TabIndex = 45;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewTourList.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewTourList.FullRowSelect = true;
+            this.listViewTourList.Location = new System.Drawing.Point(15, 25);
+            this.listViewTourList.Name = "listViewTourList";
+            this.listViewTourList.Scrollable = false;
+            this.listViewTourList.Size = new System.Drawing.Size(351, 77);
+            this.listViewTourList.TabIndex = 45;
+            this.listViewTourList.UseCompatibleStateImageBehavior = false;
+            this.listViewTourList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -125,16 +125,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnEditTour
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(438, 141);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Edit Tour";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditTour.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditTour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnEditTour.Location = new System.Drawing.Point(438, 141);
+            this.btnEditTour.Name = "btnEditTour";
+            this.btnEditTour.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTour.TabIndex = 57;
+            this.btnEditTour.Text = "Edit Tour";
+            this.btnEditTour.UseVisualStyleBackColor = true;
+            this.btnEditTour.Click += new System.EventHandler(this.btnEditTour_Click);
             // 
             // button3
             // 
@@ -147,22 +148,13 @@
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // lstTours
-            // 
-            this.lstTours.FormattingEnabled = true;
-            this.lstTours.Location = new System.Drawing.Point(24, 219);
-            this.lstTours.Name = "lstTours";
-            this.lstTours.Size = new System.Drawing.Size(120, 95);
-            this.lstTours.TabIndex = 59;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 313);
-            this.Controls.Add(this.lstTours);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnEditTour);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
@@ -181,15 +173,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewTourList;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEditTour;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox lstTours;
     }
 }
 

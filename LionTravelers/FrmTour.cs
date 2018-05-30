@@ -12,19 +12,19 @@ namespace LionTravelers
 {
     public partial class FrmTour : Form
     {
-        private clsTour _Tour;
+        private ClsTour _Tour;
         public FrmTour()
         {
             InitializeComponent();
         }
 
-        public bool ShowDialog(clsTour prTour)
+        public bool ShowDialog(ClsTour prTour)
         {
             _Tour = prTour;
-            UpdateDisplay();
+            updateDisplay();
             return ShowDialog() == DialogResult.OK;
         }
-        private void UpdateDisplay()
+        private void updateDisplay()
         {
             txtCode.Text = _Tour.Code;
             txtName.Text = _Tour.Name;
@@ -50,6 +50,65 @@ namespace LionTravelers
             _Tour.Distance = Convert.ToInt16(numericUpDownDistance.Value);
             _Tour.Markup = Convert.ToInt16(numericUpDownMarkup.Value);
             _Tour.PricePerPassenger = Convert.ToDecimal(labelTotalCost.Text);
+        }
+
+        private void btnAddTourCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddTourCost_Click(object sender, EventArgs e)
+        {
+            ClsCost lcTourCost = ClsCost.NewCost(comboBoxCostType.SelectedIndex);
+
+            if (lcTourCost != null && lcTourCost.ViewEdit())
+
+            {
+
+                ClsTour.TourCostList.Add(lcTourCost.ID, lcTourCost);
+
+                UpdateCostListDisplay();
+
+            }
+        }
+        private void UpdateCostListDisplay()
+        {
+
+            listViewTourCost.Items.Clear();
+
+            //Populate the ListView Control with Dictionary items.
+            List<ClsCost> tourCostDetails = ClsTour.TourCostList.Values.ToList<ClsCost>();
+
+            foreach (var ClsCost in tourCostDetails)
+            {
+                ListViewItem cost = new ListViewItem();
+                cost.Text = ClsCost.Name;
+                cost.SubItems.Add(ClsCost.typeOfStudent());
+                cost.SubItems.Add("$" + ClsCost.Cost.ToString());
+                cost.Tag = ClsCost;
+
+                listViewTourCost.Items.Add(cost);
+            }
+        }
+
+        private void btnEditTourCost_Click(object sender, EventArgs e)
+        {
+            if (listViewTourCost.SelectedItems.Count <= 0)
+            {
+
+            }
+            else
+            {
+                EditTourCostDetails();
+            }
+        }
+        private void EditTourCostDetails()
+        {
+            ClsCost lcCost = (ClsCost)listViewTourCost.FocusedItem.Tag;
+            if (lcCost != null && lcCost.ViewEdit())
+            {
+                UpdateCostListDisplay();
+            }
         }
     }
 }

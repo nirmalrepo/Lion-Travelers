@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace LionTravelers
 {
-    public class clsTour
+    public class ClsTour
     {
         private string _Code;
         private string _Name;
         private DateTime _StartDate = DateTime.Today;
         private DateTime _EndDate = DateTime.Today;
-        private int _NoOfPassengers;
-        private int _Distance;
-        private int _Markup;
+        private int _NoOfPassengers =1;
+        private int _Distance = 1;
+        private int _Markup = 1;
         private decimal _PricePerPassenger;
+
         private FrmTour _Form = new FrmTour();
+        private static Dictionary<string, ClsCost> _TourCostList = new Dictionary<string, ClsCost>();
 
         public string Code { get => _Code; set => _Code = value; }
         public string Name { get => _Name; set => _Name = value; }
@@ -26,10 +28,11 @@ namespace LionTravelers
         public int Distance { get => _Distance; set => _Distance = value; }
         public int Markup { get => _Markup; set => _Markup = value; }
         public decimal PricePerPassenger { get => _PricePerPassenger; set => _PricePerPassenger = value; }
+        public static Dictionary<string, ClsCost> TourCostList { get => _TourCostList; set => _TourCostList = value; }
 
-        public static clsTour newTour()
+        public static ClsTour newTour()
         {
-            return new clsTour();
+            return new ClsTour();
         }
 
         public bool viewEdit()
