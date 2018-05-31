@@ -34,6 +34,8 @@
             this.comboBoxCostType = new System.Windows.Forms.ComboBox();
             this.btnDeleteTourCost = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTotalCost = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnAddTourCost = new System.Windows.Forms.Button();
             this.listViewTourCost = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,6 +62,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.labelTotalCost = new System.Windows.Forms.Label();
             this.btnAddTourOk = new System.Windows.Forms.Button();
+            this.lblTourPrice = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarkup)).BeginInit();
@@ -71,7 +74,7 @@
             // 
             this.btnAddTourCancel.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTourCancel.ForeColor = System.Drawing.Color.Olive;
-            this.btnAddTourCancel.Location = new System.Drawing.Point(118, 287);
+            this.btnAddTourCancel.Location = new System.Drawing.Point(119, 313);
             this.btnAddTourCancel.Name = "btnAddTourCancel";
             this.btnAddTourCancel.Size = new System.Drawing.Size(64, 32);
             this.btnAddTourCancel.TabIndex = 62;
@@ -82,7 +85,7 @@
             // 
             this.btnEditTourCost.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditTourCost.ForeColor = System.Drawing.Color.Olive;
-            this.btnEditTourCost.Location = new System.Drawing.Point(82, 154);
+            this.btnEditTourCost.Location = new System.Drawing.Point(83, 206);
             this.btnEditTourCost.Name = "btnEditTourCost";
             this.btnEditTourCost.Size = new System.Drawing.Size(61, 21);
             this.btnEditTourCost.TabIndex = 56;
@@ -93,7 +96,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 118);
+            this.label13.Location = new System.Drawing.Point(13, 170);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(88, 14);
             this.label13.TabIndex = 55;
@@ -107,7 +110,7 @@
             "Vehicle",
             "Staff",
             "Other"});
-            this.comboBoxCostType.Location = new System.Drawing.Point(125, 118);
+            this.comboBoxCostType.Location = new System.Drawing.Point(126, 170);
             this.comboBoxCostType.Name = "comboBoxCostType";
             this.comboBoxCostType.Size = new System.Drawing.Size(152, 22);
             this.comboBoxCostType.TabIndex = 54;
@@ -116,14 +119,17 @@
             // 
             this.btnDeleteTourCost.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTourCost.ForeColor = System.Drawing.Color.Red;
-            this.btnDeleteTourCost.Location = new System.Drawing.Point(216, 154);
+            this.btnDeleteTourCost.Location = new System.Drawing.Point(217, 206);
             this.btnDeleteTourCost.Name = "btnDeleteTourCost";
             this.btnDeleteTourCost.Size = new System.Drawing.Size(61, 22);
             this.btnDeleteTourCost.TabIndex = 53;
             this.btnDeleteTourCost.Text = "Delete";
+            this.btnDeleteTourCost.Click += new System.EventHandler(this.btnDeleteTourCost_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblTotalCost);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.btnEditTourCost);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.comboBoxCostType);
@@ -133,16 +139,33 @@
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(352, 14);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(297, 204);
+            this.groupBox2.Size = new System.Drawing.Size(297, 247);
             this.groupBox2.TabIndex = 61;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour Cost";
+            // 
+            // lblTotalCost
+            // 
+            this.lblTotalCost.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCost.Location = new System.Drawing.Point(188, 150);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(69, 16);
+            this.lblTotalCost.TabIndex = 65;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(122, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 16);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Total Cost:";
             // 
             // btnAddTourCost
             // 
             this.btnAddTourCost.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTourCost.ForeColor = System.Drawing.Color.Green;
-            this.btnAddTourCost.Location = new System.Drawing.Point(15, 154);
+            this.btnAddTourCost.Location = new System.Drawing.Point(16, 206);
             this.btnAddTourCost.Name = "btnAddTourCost";
             this.btnAddTourCost.Size = new System.Drawing.Size(61, 21);
             this.btnAddTourCost.TabIndex = 52;
@@ -156,9 +179,11 @@
             this.columnHeader2,
             this.columnHeader5});
             this.listViewTourCost.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewTourCost.FullRowSelect = true;
             this.listViewTourCost.Location = new System.Drawing.Point(15, 25);
             this.listViewTourCost.Name = "listViewTourCost";
-            this.listViewTourCost.Size = new System.Drawing.Size(262, 77);
+            this.listViewTourCost.Size = new System.Drawing.Size(262, 113);
+            this.listViewTourCost.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.listViewTourCost.TabIndex = 45;
             this.listViewTourCost.UseCompatibleStateImageBehavior = false;
             this.listViewTourCost.View = System.Windows.Forms.View.Details;
@@ -226,6 +251,11 @@
             // 
             this.numericUpDownMarkup.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownMarkup.Location = new System.Drawing.Point(79, 213);
+            this.numericUpDownMarkup.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownMarkup.Name = "numericUpDownMarkup";
             this.numericUpDownMarkup.Size = new System.Drawing.Size(47, 20);
             this.numericUpDownMarkup.TabIndex = 57;
@@ -234,11 +264,22 @@
             0,
             0,
             0});
+            this.numericUpDownMarkup.ValueChanged += new System.EventHandler(this.numericUpDownMarkup_ValueChanged);
             // 
             // numericUpDownDistance
             // 
             this.numericUpDownDistance.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownDistance.Location = new System.Drawing.Point(79, 186);
+            this.numericUpDownDistance.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownDistance.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownDistance.Name = "numericUpDownDistance";
             this.numericUpDownDistance.Size = new System.Drawing.Size(47, 20);
             this.numericUpDownDistance.TabIndex = 56;
@@ -247,11 +288,17 @@
             0,
             0,
             0});
+            this.numericUpDownDistance.ValueChanged += new System.EventHandler(this.numericUpDownDistance_ValueChanged);
             // 
             // numericUpDownMaxPassengers
             // 
             this.numericUpDownMaxPassengers.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownMaxPassengers.Location = new System.Drawing.Point(149, 155);
+            this.numericUpDownMaxPassengers.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownMaxPassengers.Name = "numericUpDownMaxPassengers";
             this.numericUpDownMaxPassengers.Size = new System.Drawing.Size(47, 20);
             this.numericUpDownMaxPassengers.TabIndex = 55;
@@ -260,22 +307,28 @@
             0,
             0,
             0});
+            this.numericUpDownMaxPassengers.ValueChanged += new System.EventHandler(this.numericUpDownMaxPassengers_ValueChanged);
             // 
             // dateTimeEndDate
             // 
             this.dateTimeEndDate.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeEndDate.Location = new System.Drawing.Point(153, 120);
             this.dateTimeEndDate.Name = "dateTimeEndDate";
             this.dateTimeEndDate.Size = new System.Drawing.Size(135, 20);
             this.dateTimeEndDate.TabIndex = 50;
+            this.dateTimeEndDate.ValueChanged += new System.EventHandler(this.dateTimeEndDate_ValueChanged);
             // 
             // dateTimeStartDate
             // 
+            this.dateTimeStartDate.CustomFormat = "";
             this.dateTimeStartDate.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeStartDate.Location = new System.Drawing.Point(19, 120);
             this.dateTimeStartDate.Name = "dateTimeStartDate";
             this.dateTimeStartDate.Size = new System.Drawing.Size(124, 20);
             this.dateTimeStartDate.TabIndex = 49;
+            this.dateTimeStartDate.ValueChanged += new System.EventHandler(this.dateTimeStartDate_ValueChanged);
             // 
             // label8
             // 
@@ -359,20 +412,21 @@
             // Label5
             // 
             this.Label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label5.Location = new System.Drawing.Point(349, 245);
+            this.Label5.Location = new System.Drawing.Point(348, 273);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(105, 16);
+            this.Label5.Size = new System.Drawing.Size(171, 25);
             this.Label5.TabIndex = 57;
-            this.Label5.Text = "Total Cost:";
+            this.Label5.Text = "Price Per Passenger:";
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(568, 287);
+            this.btnClose.Location = new System.Drawing.Point(585, 313);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(64, 32);
             this.btnClose.TabIndex = 56;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // labelTotalCost
             // 
@@ -386,18 +440,27 @@
             // 
             this.btnAddTourOk.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddTourOk.ForeColor = System.Drawing.Color.Green;
-            this.btnAddTourOk.Location = new System.Drawing.Point(36, 287);
+            this.btnAddTourOk.Location = new System.Drawing.Point(37, 313);
             this.btnAddTourOk.Name = "btnAddTourOk";
             this.btnAddTourOk.Size = new System.Drawing.Size(64, 32);
             this.btnAddTourOk.TabIndex = 63;
             this.btnAddTourOk.Text = "OK";
             this.btnAddTourOk.Click += new System.EventHandler(this.btnAddTourOk_Click);
             // 
+            // lblTourPrice
+            // 
+            this.lblTourPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTourPrice.Location = new System.Drawing.Point(525, 273);
+            this.lblTourPrice.Name = "lblTourPrice";
+            this.lblTourPrice.Size = new System.Drawing.Size(124, 16);
+            this.lblTourPrice.TabIndex = 64;
+            // 
             // FrmTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 343);
+            this.ClientSize = new System.Drawing.Size(680, 357);
+            this.Controls.Add(this.lblTourPrice);
             this.Controls.Add(this.btnAddTourOk);
             this.Controls.Add(this.btnAddTourCancel);
             this.Controls.Add(this.groupBox2);
@@ -407,6 +470,7 @@
             this.Controls.Add(this.labelTotalCost);
             this.Name = "FrmTour";
             this.Text = "Tour Detaills";
+            this.Load += new System.EventHandler(this.FrmTour_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -452,5 +516,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDownDistance;
         private System.Windows.Forms.NumericUpDown numericUpDownMaxPassengers;
         internal System.Windows.Forms.Button btnAddTourOk;
+        internal System.Windows.Forms.Label lblTotalCost;
+        internal System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.Label lblTourPrice;
     }
 }

@@ -38,8 +38,6 @@ namespace LionTravelers
             txtName.Text = _Cost.Name;
 
             lblAmountValue.Text = Convert.ToString(_Cost.Cost);
-
-
         }
 
         private void btnAddTourCostOk_Click(object sender, EventArgs e)

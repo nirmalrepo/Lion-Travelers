@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LionTravelers
 {
+    [Serializable]
     public class ClsTour
     {
         private string _Code;

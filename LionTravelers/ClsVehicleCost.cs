@@ -22,7 +22,7 @@ namespace LionTravelers
 
         }
 
-        public override string typeOfStudent()
+        public override string typeOfCost()
         {
             return "Vehicle";
         }

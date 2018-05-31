@@ -26,7 +26,14 @@ namespace LionTravelers
             base.updateDisplay();
 
             ClsStaffCost lcCost = (ClsStaffCost)_Cost;
-            comboBoxStaffType.SelectedValue = lcCost.StaffType;
+            var StaffType = lcCost.StaffType;
+            var NoOfDays = lcCost.NoOfDays;
+            comboBoxStaffType.SelectedValue = StaffType ;
+            lblAmountValue.Text =  (StaffType == "Driver") 
+                ? Convert.ToString(Convert.ToDecimal(200) * NoOfDays) 
+                :(StaffType == "Driver")
+                ? Convert.ToString(Convert.ToDecimal(100) * NoOfDays)
+                : "";
 
         }
 
@@ -34,8 +41,11 @@ namespace LionTravelers
         {
             var selectedIndex = comboBoxStaffType.SelectedIndex;
             ClsStaffCost lcCost = (ClsStaffCost)_Cost;
-            Console.WriteLine("Days {0}", lcCost.NoOfDays);
-            lblAmountValue.Text = (selectedIndex  == 0) ? Convert.ToString(200 * lcCost.NoOfDays) : (selectedIndex == 1) ? Convert.ToString(100 * lcCost.NoOfDays) : "";
+            lblAmountValue.Text = (selectedIndex  == 0) 
+                ? Convert.ToString(200 * lcCost.NoOfDays)
+                : (selectedIndex == 1)
+                ? Convert.ToString(100 * lcCost.NoOfDays)
+                : "";
         }
     }
 }

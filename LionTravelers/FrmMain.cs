@@ -16,18 +16,17 @@ namespace LionTravelers
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ClsTour lcTour = ClsTour.newTour();
-            if (lcTour != null && lcTour.viewEdit())
+            try
             {
-                ClsSystem.TourList.Add(lcTour.Code, lcTour);
-                updateDisplay();
-                
+                ClsSystem.Retrieve();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.GetBaseException().Message);
             }
         }
+
         private void updateDisplay()
         {
             
@@ -41,7 +40,7 @@ namespace LionTravelers
                 ListViewItem tour = new ListViewItem();
                 tour.Text = ClsTour.Name;
                 tour.SubItems.Add(ClsTour.StartDate.ToString("dd/MM/yyyy"));
-                tour.SubItems.Add("$" + ClsTour.PricePerPassenger.ToString());
+                tour.SubItems.Add("$" + ClsTour.PricePerPassenger);
                 tour.Tag = ClsTour;
 
                 listViewTourList.Items.Add(tour);
@@ -71,6 +70,41 @@ namespace LionTravelers
             {
                 updateDisplay();  
             }
+        }
+
+        private void btnDeleteTour_Click(object sender, EventArgs e)
+        {
+            ClsTour lcTour = (ClsTour)listViewTourList.FocusedItem.Tag;
+            if (lcTour != null)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    ClsSystem.TourList.Remove(lcTour.Code);
+                    updateDisplay();
+                }
+            }
+        }
+
+        private void btnAddTour_Click(object sender, EventArgs e)
+        {
+            ClsTour lcTour = ClsTour.newTour();
+            if (lcTour != null && lcTour.viewEdit())
+            {
+                ClsSystem.TourList.Add(lcTour.Code, lcTour);
+                updateDisplay();
+
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClsSystem.Save();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

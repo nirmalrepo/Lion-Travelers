@@ -43,6 +43,6 @@ namespace LionTravelers
 
         public abstract bool ViewEdit();
 
-        public abstract string typeOfStudent();
+        public abstract string typeOfCost();
     }
 }

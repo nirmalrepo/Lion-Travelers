@@ -36,9 +36,9 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddTour = new System.Windows.Forms.Button();
             this.btnEditTour = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteTour = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,17 +113,17 @@
             this.label3.TabIndex = 55;
             this.label3.Text = "Copyright 2018 Lion Travelers";
             // 
-            // button1
+            // btnAddTour
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(438, 112);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "Add Tour";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddTour.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTour.ForeColor = System.Drawing.Color.Green;
+            this.btnAddTour.Location = new System.Drawing.Point(438, 112);
+            this.btnAddTour.Name = "btnAddTour";
+            this.btnAddTour.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTour.TabIndex = 56;
+            this.btnAddTour.Text = "Add Tour";
+            this.btnAddTour.UseVisualStyleBackColor = true;
+            this.btnAddTour.Click += new System.EventHandler(this.btnAddTour_Click);
             // 
             // btnEditTour
             // 
@@ -137,31 +137,34 @@
             this.btnEditTour.UseVisualStyleBackColor = true;
             this.btnEditTour.Click += new System.EventHandler(this.btnEditTour_Click);
             // 
-            // button3
+            // btnDeleteTour
             // 
-            this.button3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(438, 202);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 58;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeleteTour.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTour.ForeColor = System.Drawing.Color.Red;
+            this.btnDeleteTour.Location = new System.Drawing.Point(438, 202);
+            this.btnDeleteTour.Name = "btnDeleteTour";
+            this.btnDeleteTour.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteTour.TabIndex = 58;
+            this.btnDeleteTour.Text = "Delete";
+            this.btnDeleteTour.UseVisualStyleBackColor = true;
+            this.btnDeleteTour.Click += new System.EventHandler(this.btnDeleteTour_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 313);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDeleteTour);
             this.Controls.Add(this.btnEditTour);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddTour);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Lion Travelers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,9 +181,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddTour;
         private System.Windows.Forms.Button btnEditTour;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteTour;
     }
 }
 

@@ -19,7 +19,7 @@ namespace LionTravelers
             return _Form.ShowDialog(this) == DialogResult.OK;
         }
 
-        public override string typeOfStudent()
+        public override string typeOfCost()
         {
             return "Other";
         }
