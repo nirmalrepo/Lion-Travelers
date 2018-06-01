@@ -34,7 +34,7 @@
             this.listViewTourList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddTour = new System.Windows.Forms.Button();
             this.btnEditTour = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.listViewTourList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader5});
+            this.columnHeader3});
             this.listViewTourList.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTourList.FullRowSelect = true;
             this.listViewTourList.Location = new System.Drawing.Point(15, 25);
@@ -88,30 +88,31 @@
             this.listViewTourList.TabIndex = 45;
             this.listViewTourList.UseCompatibleStateImageBehavior = false;
             this.listViewTourList.View = System.Windows.Forms.View.Details;
+            this.listViewTourList.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewTourList_ColumnClick);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 112;
+            this.columnHeader1.Width = 171;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Start Date";
-            this.columnHeader2.Width = 147;
+            this.columnHeader2.Width = 156;
             // 
-            // columnHeader5
+            // columnHeader3
             // 
-            this.columnHeader5.Text = "Cost";
-            this.columnHeader5.Width = 160;
+            this.columnHeader3.Text = "Cost";
+            this.columnHeader3.Width = 238;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(194, 281);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.Size = new System.Drawing.Size(160, 13);
             this.label3.TabIndex = 55;
-            this.label3.Text = "Copyright 2018 Lion Travelers";
+            this.label3.Text = "Copyright © 2018 Lion Travelers";
             // 
             // btnAddTour
             // 
@@ -179,7 +180,7 @@
         private System.Windows.Forms.ListView listViewTourList;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddTour;
         private System.Windows.Forms.Button btnEditTour;

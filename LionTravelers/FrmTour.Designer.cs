@@ -183,10 +183,10 @@
             this.listViewTourCost.Location = new System.Drawing.Point(15, 25);
             this.listViewTourCost.Name = "listViewTourCost";
             this.listViewTourCost.Size = new System.Drawing.Size(262, 113);
-            this.listViewTourCost.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.listViewTourCost.TabIndex = 45;
             this.listViewTourCost.UseCompatibleStateImageBehavior = false;
             this.listViewTourCost.View = System.Windows.Forms.View.Details;
+            this.listViewTourCost.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewTourCost_ColumnClick);
             // 
             // columnHeader1
             // 

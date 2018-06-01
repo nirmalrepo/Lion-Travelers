@@ -39,7 +39,6 @@ namespace LionTravelers
         public static void Retrieve()
 
         {
-
             using (FileStream lcFileStream = new FileStream(fileName, FileMode.Open))
 
             {

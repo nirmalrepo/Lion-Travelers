@@ -13,13 +13,14 @@ namespace LionTravelers
         private string _Name;
         private DateTime _StartDate = DateTime.Today;
         private DateTime _EndDate = DateTime.Today;
-        private int _NoOfPassengers =1;
+        private int _NoOfPassengers = 1;
         private int _Distance = 1;
         private int _Markup = 1;
         private decimal _PricePerPassenger;
 
-        private FrmTour _Form = new FrmTour();
-        private static Dictionary<string, ClsCost> _TourCostList = new Dictionary<string, ClsCost>();
+       
+        private static FrmTour _Form = new FrmTour();
+        private  Dictionary<string, ClsCost> _TourCostList = new Dictionary<string, ClsCost>();
 
         public string Code { get => _Code; set => _Code = value; }
         public string Name { get => _Name; set => _Name = value; }
@@ -29,7 +30,7 @@ namespace LionTravelers
         public int Distance { get => _Distance; set => _Distance = value; }
         public int Markup { get => _Markup; set => _Markup = value; }
         public decimal PricePerPassenger { get => _PricePerPassenger; set => _PricePerPassenger = value; }
-        public static Dictionary<string, ClsCost> TourCostList { get => _TourCostList; set => _TourCostList = value; }
+        public  Dictionary<string, ClsCost> TourCostList { get => _TourCostList; set => _TourCostList = value; }
 
         public static ClsTour newTour()
         {

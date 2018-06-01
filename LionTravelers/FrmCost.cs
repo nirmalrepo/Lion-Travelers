@@ -42,11 +42,39 @@ namespace LionTravelers
 
         private void btnAddTourCostOk_Click(object sender, EventArgs e)
         {
-            pushData();
+            if (IsValidForm())
+            {
+                pushData();
 
-            DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
+            }
+            
         }
 
+        protected virtual bool IsValidForm()
+        {
+            if (txtID.Text == "" & txtName.Text == "")
+            {
+                ShowErrorMessage("Please provide all the required fields.", "Required Fields");
+                return false;
+            }
+            else if (_Tour.TourCostList.ContainsKey(txtID.Text))
+            {
+                ShowErrorMessage("Please provide another code.", "Code Already Exists");
+                txtID.Clear();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        protected virtual void ShowErrorMessage(string detail, string title)
+        {
+            MessageBox.Show(detail, title,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         protected virtual void pushData()
         {
             _Cost.ID = txtID.Text;

@@ -12,6 +12,7 @@ namespace LionTravelers
         private const string STAFF_TYPE_DRIVER = "Driver";
         private ClsTour _Tour;
         private ClsTour _InitialTour;
+        private ColumnHeader SortingColumn = null;
         public FrmTour()
         {
             InitializeComponent();
@@ -34,13 +35,54 @@ namespace LionTravelers
             numericUpDownDistance.Value = _Tour.Distance;
             numericUpDownMarkup.Value = _Tour.Markup;
             lblTourPrice.Text = Convert.ToString(_Tour.PricePerPassenger);
+            comboBoxCostType.Text = VEHICLE;
+            UpdateCostListDisplayAndCostTotal();
         }
+
+
         private void btnAddTourOk_Click(object sender, EventArgs e)
         {
-            pushData();
-            DialogResult = DialogResult.OK;
+           
+            if (IsValidForm())
+            {
+                pushData();
+                DialogResult = DialogResult.OK;
+            }
+            
+           
 
         }
+
+        private bool IsValidForm()
+        {
+            if (txtCode.Text == "" & txtName.Text == "")
+            {
+                ShowErrorMessage("Please provide all the required fields.", "Required Fields");
+                return false;
+            }else if (ClsSystem.TourList.ContainsKey(txtCode.Text))
+            {
+                ShowErrorMessage("Please provide another code.", "Code Already Exists");
+                txtCode.Clear();
+                return false;
+            }
+            else if (listViewTourCost.Items.Count == 0)
+            {
+
+                ShowErrorMessage("Please add a tour cost.", "No Tour Costs Found.");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void ShowErrorMessage(string detail, string title)
+        {
+            MessageBox.Show(detail, title,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void pushData()
         {
             _Tour.Code = txtCode.Text;
@@ -55,7 +97,7 @@ namespace LionTravelers
 
         private void btnAddTourCancel_Click(object sender, EventArgs e)
         {
-            _Tour = _InitialTour;
+           _Tour = _InitialTour;
             this.Close();
         }
 
@@ -65,7 +107,7 @@ namespace LionTravelers
             ClsCost lcTourCost = ClsCost.NewCost(comboBoxCostType.SelectedIndex, TourData);
             if (lcTourCost != null && lcTourCost.ViewEdit())
             {
-                ClsTour.TourCostList.Add(lcTourCost.ID, lcTourCost);
+                _Tour.TourCostList.Add(lcTourCost.ID, lcTourCost);
                 UpdateCostListDisplayAndCostTotal();
                 CalculatePricePerPassenger();
             }
@@ -83,7 +125,7 @@ namespace LionTravelers
         {
             decimal TotalCost = 0;
             listViewTourCost.Items.Clear();
-            List<ClsCost> tourCostDetails = ClsTour.TourCostList.Values.ToList<ClsCost>();
+            List<ClsCost> tourCostDetails = _Tour.TourCostList.Values.ToList<ClsCost>();
             foreach (var ClsCost in tourCostDetails)
             {
                 ListViewItem cost = new ListViewItem();
@@ -93,6 +135,7 @@ namespace LionTravelers
                 cost.Tag = ClsCost;
                 listViewTourCost.Items.Add(cost);
                 TotalCost += ClsCost.Cost;
+                Console.WriteLine("Items {0}", ClsCost.ID);
             }
             lblTotalCost.Text = Convert.ToString(TotalCost);
         }
@@ -154,7 +197,7 @@ namespace LionTravelers
             if (listViewTourCost.Items.Count > 0)
             {
                 decimal TotalCost = 0;
-                List<ClsCost> tourCostOldDetails = ClsTour.TourCostList.Values.ToList<ClsCost>();
+                List<ClsCost> tourCostOldDetails = _Tour.TourCostList.Values.ToList<ClsCost>();
                 foreach (ListViewItem item in listViewTourCost.Items)
                 {
                     if (VEHICLE == item.SubItems[1].Text)
@@ -175,7 +218,7 @@ namespace LionTravelers
         {
             if (listViewTourCost.Items.Count > 0)
             {
-                List<ClsCost> tourCostOldDetails = ClsTour.TourCostList.Values.ToList<ClsCost>();
+                List<ClsCost> tourCostOldDetails = _Tour.TourCostList.Values.ToList<ClsCost>();
                 decimal TotalCost = 0;
                 foreach (ListViewItem item in listViewTourCost.Items)
                 {
@@ -220,7 +263,7 @@ namespace LionTravelers
                 DialogResult result = MessageBox.Show("Are you sure to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    ClsTour.TourCostList.Remove(lcCost.ID);
+                    _Tour.TourCostList.Remove(lcCost.ID);
                     UpdateCostListDisplayAndCostTotal();
                     CalculatePricePerPassenger();
                 }
@@ -230,6 +273,62 @@ namespace LionTravelers
         private void FrmTour_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void listViewTourCost_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Get the new sorting column.
+            ColumnHeader new_sorting_column = listViewTourCost.Columns[e.Column];
+
+            // Figure out the new sorting order.
+            SortOrder sort_order;
+            if (SortingColumn == null)
+            {
+                // New column. Sort ascending.
+                sort_order = SortOrder.Ascending;
+            }
+            else
+            {
+                // See if this is the same column.
+                if (new_sorting_column == SortingColumn)
+                {
+                    // Same column. Switch the sort order.
+                    if (SortingColumn.Text.StartsWith("▼ "))
+                    {
+                        sort_order = SortOrder.Descending;
+                    }
+                    else
+                    {
+                        sort_order = SortOrder.Ascending;
+                    }
+                }
+                else
+                {
+                    // New column. Sort ascending.
+                    sort_order = SortOrder.Ascending;
+                }
+
+                // Remove the old sort indicator.
+                SortingColumn.Text = SortingColumn.Text.Substring(2);
+            }
+
+            // Display the new sort order.
+            SortingColumn = new_sorting_column;
+            if (sort_order == SortOrder.Ascending)
+            {
+                SortingColumn.Text = "▼ " + SortingColumn.Text;
+            }
+            else
+            {
+                SortingColumn.Text = "▲ " + SortingColumn.Text;
+            }
+
+            // Create a comparer.
+            listViewTourCost.ListViewItemSorter =
+                new ListViewComparer(e.Column, sort_order);
+
+            // Sort.
+            listViewTourCost.Sort();
         }
     }
 }

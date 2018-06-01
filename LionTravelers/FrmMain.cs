@@ -12,6 +12,7 @@ namespace LionTravelers
 {
     public partial class Form1 : Form
     {
+        private ColumnHeader SortingColumn = null;
         private FrmTour _AddTour = new FrmTour();
         public Form1()
         {
@@ -19,6 +20,7 @@ namespace LionTravelers
             try
             {
                 ClsSystem.Retrieve();
+                updateDisplay();
             }
             catch (Exception ex)
             {
@@ -106,5 +108,62 @@ namespace LionTravelers
         {
 
         }
+
+        private void listViewTourList_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Get the new sorting column.
+            ColumnHeader new_sorting_column = listViewTourList.Columns[e.Column];
+
+            // Figure out the new sorting order.
+            SortOrder sort_order;
+            if (SortingColumn == null)
+            {
+                // New column. Sort ascending.
+                sort_order = SortOrder.Ascending;
+            }
+            else
+            {
+                // See if this is the same column.
+                if (new_sorting_column == SortingColumn)
+                {
+                    // Same column. Switch the sort order.
+                    if (SortingColumn.Text.StartsWith("▼ "))
+                    {
+                        sort_order = SortOrder.Descending;
+                    }
+                    else
+                    {
+                        sort_order = SortOrder.Ascending;
+                    }
+                }
+                else
+                {
+                    // New column. Sort ascending.
+                    sort_order = SortOrder.Ascending;
+                }
+
+                // Remove the old sort indicator.
+                SortingColumn.Text = SortingColumn.Text.Substring(2);
+            }
+
+            // Display the new sort order.
+            SortingColumn = new_sorting_column;
+            if (sort_order == SortOrder.Ascending)
+            {
+                SortingColumn.Text = "▼ " + SortingColumn.Text;
+            }
+            else
+            {
+                SortingColumn.Text = "▲ " + SortingColumn.Text;
+            }
+
+            // Create a comparer.
+            listViewTourList.ListViewItemSorter =
+                new ListViewComparer(e.Column, sort_order);
+
+            // Sort.
+            listViewTourList.Sort();
+        }
+
     }
 }

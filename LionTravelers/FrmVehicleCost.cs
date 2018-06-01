@@ -26,6 +26,25 @@ namespace LionTravelers
             
         }
 
+        protected override bool IsValidForm()
+        {
+            base.IsValidForm();
+            if (txtKmCharge.Text == "" )
+            {
+                ShowErrorMessage("Please provide all the required fields.", "Required Fields");
+                return false;
+            }
+           
+            else
+            {
+                return true;
+            }
+        }
+
+        protected override void ShowErrorMessage(string detail, string title)
+        {
+            base.ShowErrorMessage(detail, title);
+        }
         protected override void updateDisplay()
         {
             base.updateDisplay();

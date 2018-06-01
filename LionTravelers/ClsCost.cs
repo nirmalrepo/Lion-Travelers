@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LionTravelers
 {
+    [Serializable]
     public abstract class ClsCost
     {
         private const string DISTANCE = "distance";

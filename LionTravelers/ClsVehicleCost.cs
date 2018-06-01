@@ -7,10 +7,12 @@ using System.Windows.Forms;
 
 namespace LionTravelers
 {
+    [Serializable]
     class ClsVehicleCost:ClsCost
     {
         private decimal _KmCharge;
         private decimal _Distance;
+       
         private static FrmVehicleCost _Form = new FrmVehicleCost();
 
         public decimal KmCharge { get => _KmCharge; set => _KmCharge = value; }
