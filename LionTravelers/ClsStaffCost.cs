@@ -10,7 +10,7 @@ namespace LionTravelers
     [Serializable]
     class ClsStaffCost: ClsCost
     {
-        private string _StaffType;
+        private string _StaffType= Constants.STAFF_TYPE_DRIVER;
         private decimal _NoOfDays;
        
         private static FrmStaffCost _Form = new FrmStaffCost();

@@ -28,7 +28,11 @@ namespace LionTravelers
 
         protected override bool IsValidForm()
         {
-            base.IsValidForm();
+            if (!base.IsValidForm())
+            {
+                return false;
+            }
+            
             if (txtKmCharge.Text == "" )
             {
                 ShowErrorMessage("Please provide all the required fields.", "Required Fields");

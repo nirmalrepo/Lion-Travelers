@@ -34,16 +34,21 @@ namespace LionTravelers
         {
 
             txtID.Text = _Cost.ID;
+            if(_Cost.ID != null)
+            txtID.Enabled = false;
 
             txtName.Text = _Cost.Name;
 
             lblAmountValue.Text = Convert.ToString(_Cost.Cost);
+
         }
 
         private void btnAddTourCostOk_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Het");
             if (IsValidForm())
             {
+                
                 pushData();
 
                 DialogResult = DialogResult.OK;
@@ -58,9 +63,10 @@ namespace LionTravelers
                 ShowErrorMessage("Please provide all the required fields.", "Required Fields");
                 return false;
             }
-            else if (_Tour.TourCostList.ContainsKey(txtID.Text))
+            else if (_Cost.TourCostList != null && _Cost.TourCostList.ContainsKey(txtID.Text))
             {
                 ShowErrorMessage("Please provide another code.", "Code Already Exists");
+                
                 txtID.Clear();
                 return false;
             }

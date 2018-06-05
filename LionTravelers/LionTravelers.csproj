@@ -50,6 +50,7 @@
     <Compile Include="ClsStaffCost.cs" />
     <Compile Include="ClsTour.cs" />
     <Compile Include="ClsVehicleCost.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="FrmCost.cs">
       <SubType>Form</SubType>
     </Compile>

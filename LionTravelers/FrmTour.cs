@@ -28,6 +28,8 @@ namespace LionTravelers
         private void updateDisplay()
         {
             txtCode.Text = _Tour.Code;
+            if (_Tour.Code != null)
+                txtCode.Enabled = false;
             txtName.Text = _Tour.Name;
             dateTimeStartDate.Value = _Tour.StartDate;
             dateTimeEndDate.Value = _Tour.EndDate;
@@ -59,7 +61,7 @@ namespace LionTravelers
             {
                 ShowErrorMessage("Please provide all the required fields.", "Required Fields");
                 return false;
-            }else if (ClsSystem.TourList.ContainsKey(txtCode.Text))
+            } else if (ClsSystem.TourList != null && ClsSystem.TourList.ContainsKey(txtCode.Text))
             {
                 ShowErrorMessage("Please provide another code.", "Code Already Exists");
                 txtCode.Clear();
@@ -112,13 +114,15 @@ namespace LionTravelers
                 CalculatePricePerPassenger();
             }
         }
-        private Dictionary<string, string> getTourDataForCostAmountCalculation()
+        private Dictionary<string, object> getTourDataForCostAmountCalculation()
         {
-            var TourData = new Dictionary<string, string>();
+            var TourData = new Dictionary<string, dynamic>();
             var Duration = dateTimeEndDate.Value.Subtract(dateTimeStartDate.Value).Days.ToString();
             var NoOfDays = (Duration == "0") ? "1" : Duration;
-            TourData.Add("distance", Convert.ToString(numericUpDownDistance.Value));
-            TourData.Add("noOfDays", NoOfDays);
+            var CostList = _Tour.TourCostList;
+            TourData.Add(Constants.DISTANCE, Convert.ToString(numericUpDownDistance.Value));
+            TourData.Add(Constants.NO_OF_DAYS, NoOfDays);
+            TourData.Add(Constants.COST_LIST, CostList);
             return TourData;
         }
         private void UpdateCostListDisplayAndCostTotal()
@@ -135,7 +139,7 @@ namespace LionTravelers
                 cost.Tag = ClsCost;
                 listViewTourCost.Items.Add(cost);
                 TotalCost += ClsCost.Cost;
-                Console.WriteLine("Items {0}", ClsCost.ID);
+               
             }
             lblTotalCost.Text = Convert.ToString(TotalCost);
         }

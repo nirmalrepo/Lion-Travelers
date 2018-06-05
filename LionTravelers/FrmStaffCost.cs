@@ -21,6 +21,24 @@ namespace LionTravelers
             ClsStaffCost lcCost = (ClsStaffCost)_Cost;
             lcCost.StaffType = comboBoxStaffType.SelectedItem.ToString();
         }
+        protected override bool IsValidForm()
+        {
+            if (!base.IsValidForm())
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+           
+        }
+
+        protected override void ShowErrorMessage(string detail, string title)
+        {
+            base.ShowErrorMessage(detail, title);
+        }
         protected override void updateDisplay()
         {
             base.updateDisplay();
@@ -28,10 +46,10 @@ namespace LionTravelers
             ClsStaffCost lcCost = (ClsStaffCost)_Cost;
             var StaffType = lcCost.StaffType;
             var NoOfDays = lcCost.NoOfDays;
-            comboBoxStaffType.SelectedValue = StaffType ;
-            lblAmountValue.Text =  (StaffType == "Driver") 
+            comboBoxStaffType.Text = StaffType ;
+            lblAmountValue.Text =  (StaffType == Constants.STAFF_TYPE_DRIVER) 
                 ? Convert.ToString(Convert.ToDecimal(200) * NoOfDays) 
-                :(StaffType == "Driver")
+                :(StaffType == Constants.STAFF_TOUR_GUIDE)
                 ? Convert.ToString(Convert.ToDecimal(100) * NoOfDays)
                 : "";
 
