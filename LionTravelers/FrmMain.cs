@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LionTravelers
 {
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     {
         private ColumnHeader SortingColumn = null;
         private FrmTour _AddTour = new FrmTour();
-        public Form1()
+        public FrmMain()
         {
             InitializeComponent();
             try

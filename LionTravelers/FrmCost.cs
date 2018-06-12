@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LionTravelers
@@ -21,21 +14,16 @@ namespace LionTravelers
         public DialogResult ShowDialog(ClsCost prCost)
 
         {
-
             _Cost = prCost;
-
             updateDisplay();
-
             return ShowDialog();
-
         }
         protected virtual void updateDisplay()
 
         {
-
             txtID.Text = _Cost.ID;
-            if(_Cost.ID != null)
-            txtID.Enabled = false;
+            if (_Cost.ID != null)
+                txtID.Enabled = false;
 
             txtName.Text = _Cost.Name;
 
@@ -45,15 +33,14 @@ namespace LionTravelers
 
         private void btnAddTourCostOk_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Het");
             if (IsValidForm())
             {
-                
+
                 pushData();
 
                 DialogResult = DialogResult.OK;
             }
-            
+
         }
 
         protected virtual bool IsValidForm()
@@ -66,7 +53,7 @@ namespace LionTravelers
             else if (_Cost.TourCostList != null && _Cost.TourCostList.ContainsKey(txtID.Text))
             {
                 ShowErrorMessage("Please provide another code.", "Code Already Exists");
-                
+
                 txtID.Clear();
                 return false;
             }
@@ -90,8 +77,9 @@ namespace LionTravelers
             _Cost.Cost = Convert.ToDecimal(lblAmountValue.Text);
         }
 
-        protected virtual string CalculateTotalCostAmount(char costToCalculate) {
-            return lblAmountValue.Text; 
+        protected virtual string CalculateTotalCostAmount(char costToCalculate)
+        {
+            return lblAmountValue.Text;
         }
     }
 }
