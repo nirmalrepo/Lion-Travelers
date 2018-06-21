@@ -48,6 +48,7 @@
             this.txtOtherCostAmount.Size = new System.Drawing.Size(101, 20);
             this.txtOtherCostAmount.TabIndex = 68;
             this.txtOtherCostAmount.Text = " ";
+            this.txtOtherCostAmount.TextChanged += new System.EventHandler(this.txtOtherCostAmount_TextChanged);
             // 
             // FrmOtherCost
             // 

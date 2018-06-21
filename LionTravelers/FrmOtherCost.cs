@@ -24,5 +24,10 @@ namespace LionTravelers
             txtOtherCostAmount.Text = Convert.ToString(lcCost.OtherFees);
 
         }
+
+        private void txtOtherCostAmount_TextChanged(object sender, EventArgs e)
+        {
+            lblAmountValue.Text = txtOtherCostAmount.Text;
+        }
     }
 }

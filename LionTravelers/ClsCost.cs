@@ -15,6 +15,7 @@ namespace LionTravelers
         public decimal Cost { get => _Cost; set => _Cost = value; }
         public Dictionary<string, ClsCost> TourCostList { get => _TourCostList; set => _TourCostList = value; }
 
+        private bool isEdit = false;
         public static ClsCost NewCost(int prChoice, Dictionary<string, dynamic> TourDetails )
 
         {

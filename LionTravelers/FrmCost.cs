@@ -23,7 +23,10 @@ namespace LionTravelers
         {
             txtID.Text = _Cost.ID;
             if (_Cost.ID != null)
+            {
                 txtID.Enabled = false;
+            }
+               
 
             txtName.Text = _Cost.Name;
 
@@ -50,7 +53,7 @@ namespace LionTravelers
                 ShowErrorMessage("Please provide all the required fields.", "Required Fields");
                 return false;
             }
-            else if (_Cost.TourCostList != null && _Cost.TourCostList.ContainsKey(txtID.Text))
+            else if (_Cost.TourCostList != null && _Cost.TourCostList.ContainsKey(txtID.Text) && txtID.Enabled == true)
             {
                 ShowErrorMessage("Please provide another code.", "Code Already Exists");
 

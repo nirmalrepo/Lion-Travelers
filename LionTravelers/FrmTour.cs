@@ -29,7 +29,10 @@ namespace LionTravelers
         {
             txtCode.Text = _Tour.Code;
             if (_Tour.Code != null)
+            {
                 txtCode.Enabled = false;
+            }
+                
             txtName.Text = _Tour.Name;
             dateTimeStartDate.Value = _Tour.StartDate;
             dateTimeEndDate.Value = _Tour.EndDate;
@@ -61,7 +64,7 @@ namespace LionTravelers
             {
                 ShowErrorMessage("Please provide all the required fields.", "Required Fields");
                 return false;
-            } else if (ClsSystem.TourList != null && ClsSystem.TourList.ContainsKey(txtCode.Text))
+            } else if (ClsSystem.TourList != null && ClsSystem.TourList.ContainsKey(txtCode.Text) && txtCode.Enabled == true)
             {
                 ShowErrorMessage("Please provide another code.", "Code Already Exists");
                 txtCode.Clear();
